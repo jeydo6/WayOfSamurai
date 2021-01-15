@@ -1,7 +1,7 @@
-import styles from './Profile.module.css'
+import styles from './Profile.module.css';
 
-import Info from './Info/Info'
-import Posts from './Posts/Posts'
+import Info from './Info/Info';
+import Posts from './Posts/Posts';
 
 const Profile = (props) => {
   return (

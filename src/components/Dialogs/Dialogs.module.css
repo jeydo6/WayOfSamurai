@@ -14,3 +14,7 @@
 .messages {
   grid-area: messages;
 }
+
+.newMessage {
+  padding: 15px 0px;
+}

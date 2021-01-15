@@ -1,9 +1,17 @@
-import styles from './Dialogs.module.css'
+import React from 'react';
 
-import Dialog from './Dialog/Dialog'
-import Message from './Message/Message'
+import styles from './Dialogs.module.css';
+
+import Dialog from './Dialog/Dialog';
+import Message from './Message/Message';
 
 const Dialogs = (props) => {
+  let newMessageRef = React.createRef();
+
+  let addMessage = () => {
+    alert(newMessageRef.current.value);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.dialogs}>
@@ -15,6 +23,14 @@ const Dialogs = (props) => {
         {
           props.state.messages.map((m, i) => <Message text={m.text} key={i} />)
         }
+        <div className={styles.newMessage}>
+          <div>
+            <textarea ref={newMessageRef} />
+          </div>
+          <div>
+            <button onClick={addMessage}>Add Message</button>
+          </div>
+        </div>
       </div>
     </div>
   );

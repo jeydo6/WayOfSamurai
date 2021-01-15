@@ -1,4 +1,4 @@
-import styles from './Info.module.css'
+import styles from './Info.module.css';
 
 const Info = () => {
   return (
