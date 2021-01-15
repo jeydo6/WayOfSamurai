@@ -4,6 +4,7 @@
     "dialogs messages";
   grid-template-columns: 2fr 10fr;
   grid-gap: 15px;
+  padding: 15px;
 }
 
 .dialogs {

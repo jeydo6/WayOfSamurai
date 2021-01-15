@@ -1,12 +1,12 @@
-import Posts from './Posts/Posts'
 import styles from './Profile.module.css'
+
+import Info from './Info/Info'
+import Posts from './Posts/Posts'
 
 const Profile = () => {
   return (
-    <div>
-      <div className={styles.header}>
-        <img src='https://domfotooboev.com.ua/home/products_images/0381.jpg' alt='' />
-      </div>
+    <div className={styles.wrapper}>
+      <Info />
       <Posts />
     </div>
   );
