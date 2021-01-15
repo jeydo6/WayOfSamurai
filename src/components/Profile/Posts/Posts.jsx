@@ -2,6 +2,20 @@ import Post from './Post/Post'
 import styles from './Posts.module.css'
 
 const Posts = () => {
+
+  let posts = [
+    {
+      id: 1,
+      text: 'Hi, how are you?',
+      likes: 1
+    },
+    {
+      id: 2,
+      text: 'It\'s my first post!',
+      likes: 23
+    }
+  ];
+  
   return (
     <div>
       Posts
@@ -13,8 +27,9 @@ const Posts = () => {
           <button>Add Post</button>
         </div>
       </div>
-      <Post message='Hi, how are you?' likes='1'/>
-      <Post message='It&apos;s my first post!' likes='23' />
+      {
+        posts.map(p => <Post text={p.text} likes={p.likes} />)
+      }
     </div>
   );
 }
