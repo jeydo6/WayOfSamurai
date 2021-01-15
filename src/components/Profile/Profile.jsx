@@ -3,7 +3,7 @@ import styles from './Profile.module.css'
 
 const Profile = () => {
   return (
-    <div className={styles.content}>
+    <div>
       <div className={styles.header}>
         <img src='https://domfotooboev.com.ua/home/products_images/0381.jpg' alt='' />
       </div>

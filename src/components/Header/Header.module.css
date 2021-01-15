@@ -1,7 +1,8 @@
 .header {
-    grid-area: header;
-    background-color: white;
-  }
+  grid-area: header;
+  background-color: white;
+  padding: 6px 15px;
+}
   
 .header img {
   height: 100%;
