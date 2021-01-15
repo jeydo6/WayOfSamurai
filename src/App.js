@@ -11,7 +11,7 @@ import Header from './components/Header/Header'
 import Profile from './components/Profile/Profile';
 import Sidebar from './components/Sidebar/Sidebar';
 
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <div className='app-wrapper'>
@@ -19,8 +19,8 @@ const App = () => {
         <Sidebar />
         <div className='app-wrapper-content'>
           <Switch>
-            <Route path='/dialogs' component={Dialogs} />
-            <Route path='/profile' component={Profile} />
+            <Route path='/profile' render={() => <Profile state={props.state.profile} />} />
+            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogs} />}/>
           </Switch>
         </div>
       </div>

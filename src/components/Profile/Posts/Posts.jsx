@@ -1,21 +1,7 @@
 import Post from './Post/Post'
 import styles from './Posts.module.css'
 
-const Posts = () => {
-
-  let posts = [
-    {
-      id: 1,
-      text: 'Hi, how are you?',
-      likes: 1
-    },
-    {
-      id: 2,
-      text: 'It\'s my first post!',
-      likes: 23
-    }
-  ];
-  
+const Posts = (props) => {
   return (
     <div>
       Posts
@@ -28,7 +14,7 @@ const Posts = () => {
         </div>
       </div>
       {
-        posts.map(p => <Post text={p.text} likes={p.likes} />)
+        props.posts.map((p, i) => <Post text={p.text} likes={p.likes} key={i} />)
       }
     </div>
   );
