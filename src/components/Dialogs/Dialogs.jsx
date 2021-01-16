@@ -5,30 +5,40 @@ import styles from './Dialogs.module.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 
-const Dialogs = (props) => {
-  let newMessageRef = React.createRef();
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
 
-  let addMessage = () => {
-    alert(newMessageRef.current.value);
+const Dialogs = (props) => {
+  let state = props.store.getState();
+  let dispatch = props.store.dispatch.bind(props.store);
+
+  let addMessageClick = () => {
+
+    dispatch(addMessageActionCreator());
   };
+
+  let newMessageUpdate = (e) => {
+    let newPostText = e.target.value;
+
+    dispatch(updateNewMessageTextActionCreator(newPostText))
+  }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.dialogs}>
         {
-          props.state.dialogs.map((d, i) => <Dialog id={d.id} name={d.name} key={i} />)
+          state.dialogs.dialogs.map((d, i) => <Dialog id={d.id} name={d.name} key={i} />)
         }
       </div>
       <div className={styles.messages}>
         {
-          props.state.messages.map((m, i) => <Message text={m.text} key={i} />)
+          state.dialogs.messages.map((m, i) => <Message text={m.text} key={i} />)
         }
         <div className={styles.newMessage}>
           <div>
-            <textarea ref={newMessageRef} />
+          <textarea value={state.dialogs.newMessageText} onChange={newMessageUpdate} placeholder='Enter your text' />
           </div>
           <div>
-            <button onClick={addMessage}>Add Message</button>
+            <button onClick={addMessageClick}>Add Message</button>
           </div>
         </div>
       </div>

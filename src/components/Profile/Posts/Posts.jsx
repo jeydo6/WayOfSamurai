@@ -1,30 +1,37 @@
-import React from 'react';
-
 import styles from './Posts.module.css';
 
 import Post from './Post/Post';
 
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profileReducer';
+
 const Posts = (props) => {
+  let state = props.store.getState();
+  let dispatch = props.store.dispatch.bind(props.store);
 
-  let newPostRef = React.createRef();
-
-  let addPost = () => {
-    alert(newPostRef.current.value);
+  let addPostClick = () => {
+    
+    dispatch(addPostActionCreator());
   };
+
+  let newPostUpdate = (e) => {
+    let newPostText = e.target.value;
+
+    dispatch(updateNewPostTextActionCreator(newPostText))
+  }
 
   return (
     <div>
       Posts
       <div className={styles.newPost}>
         <div>
-          <textarea ref={newPostRef} />
+          <textarea value={state.profile.newPostText} onChange={newPostUpdate} placeholder='Enter your text' />
         </div>
         <div>
-          <button onClick={addPost}>Add Post</button>
+          <button onClick={addPostClick}>Add Post</button>
         </div>
       </div>
       {
-        props.posts.map((p, i) => <Post text={p.text} likes={p.likes} key={i} />)
+        state.profile.posts.map((p, i) => <Post text={p.text} likes={p.likes} key={i} />)
       }
     </div>
   );
