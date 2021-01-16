@@ -5,7 +5,7 @@ import './index.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state';
+import store from './redux/store';
 
 let rerenderEntireTree = () => {
   ReactDOM.render(
