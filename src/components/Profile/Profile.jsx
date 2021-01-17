@@ -1,13 +1,13 @@
 import styles from './Profile.module.css';
 
 import Info from './Info/Info';
-import Posts from './Posts/Posts';
+import PostsContainer from './Posts/PostsContainer';
 
 const Profile = (props) => {
   return (
     <div className={styles.wrapper}>
       <Info />
-      <Posts store={props.store} />
+      <PostsContainer store={props.store} />
     </div>
   );
 }

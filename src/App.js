@@ -6,7 +6,7 @@ import {
 
 import './App.css';
 
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -20,7 +20,7 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Switch>
             <Route path='/profile' render={() => <Profile store={props.store} />} />
-            <Route path='/dialogs' render={() => <Dialogs store={props.store} />}/>
+            <Route path='/dialogs' render={() => <DialogsContainer store={props.store} />}/>
           </Switch>
         </div>
       </div>
