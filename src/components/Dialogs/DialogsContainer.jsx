@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import Dialogs from './Dialogs';
 
@@ -9,7 +9,7 @@ let mapStateToProps = (state) => {
     dialogs: state.dialogs.dialogs,
     newMessageText: state.dialogs.newMessageText,
     messages: state.dialogs.messages
-  }
+  };
 };
 
 let mapDispatchToProps = (dispatch) => {
@@ -18,9 +18,9 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(addMessageActionCreator(text));
     },
     updateNewMessageText: (newMessageText) => {
-      dispatch(updateNewMessageTextActionCreator(newMessageText))
+      dispatch(updateNewMessageTextActionCreator(newMessageText));
     }
-  }
+  };
 };
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);

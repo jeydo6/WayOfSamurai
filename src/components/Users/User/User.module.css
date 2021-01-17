@@ -1,0 +1,68 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "photo info";
+  grid-template-columns: 1fr 5fr 6fr;
+  padding: 6px;
+}
+
+.photoWrapper {
+  grid-area: photo;
+  display: grid;
+  grid-template-areas:
+    "avatar"
+    "action";
+  grid-template-rows: 3fr 1fr;
+  padding: 6px 15px;
+}
+
+.infoWrapper {
+  grid-area: info;
+  display: grid;
+  grid-template-areas:
+    "name location"
+    "status location";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  padding: 6px;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+}
+
+.avatar {
+  grid-area: avatar;
+  text-align: center;
+}
+
+.avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+.action {
+  grid-area: action;
+  text-align: center;
+}
+
+.name {
+  grid-area: name;
+  margin-left: 6px;
+  margin-top: auto;
+  font-size: large;
+}
+
+.status {
+  grid-area: status;
+  margin-left: 6px;
+  margin-bottom: 0;
+  font-size: small;
+  color: gray;
+}
+
+.location {
+  grid-area: location;
+  margin: auto;
+}
