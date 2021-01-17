@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas:
     "photo info";
-  grid-template-columns: 1fr 5fr 6fr;
+  grid-template-columns: 1fr 4fr 7fr;
   padding: 6px;
 }
 
@@ -64,5 +64,6 @@
 
 .location {
   grid-area: location;
+  text-align: right;
   margin: auto;
 }

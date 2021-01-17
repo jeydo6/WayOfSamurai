@@ -18,8 +18,8 @@ const User = (props) => {
         <div className={style.action}>
           {
             props.followed
-            ? <button onClick={onUnfollow}>Unfollow</button>
-            : <button onClick={onFollow}>Follow</button>
+              ? <button onClick={onUnfollow}>Unfollow</button>
+              : <button onClick={onFollow}>Follow</button>
           }
         </div>
       </div>
@@ -31,7 +31,12 @@ const User = (props) => {
           {props.status}
         </div>
         <div className={style.location}>
-          {props.location.country}, {props.location.city}
+          <div>
+            {props.location.country},
+          </div>
+          <div>
+            {props.location.city}
+          </div>
         </div>
       </div>
     </div>
