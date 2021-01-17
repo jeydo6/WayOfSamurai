@@ -19,8 +19,8 @@ const App = (props) => {
         <Sidebar />
         <div className='app-wrapper-content'>
           <Switch>
-            <Route path='/profile' render={() => <Profile store={props.store} />} />
-            <Route path='/dialogs' render={() => <DialogsContainer store={props.store} />}/>
+            <Route path='/profile' component={Profile} />
+            <Route path='/dialogs' component={DialogsContainer} />
           </Switch>
         </div>
       </div>
