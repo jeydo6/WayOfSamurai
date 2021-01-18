@@ -22,6 +22,9 @@ const Posts = (props) => {
   return (
     <div>
       Posts
+      {
+        props.posts.map((p, i) => <Post userName={p.userName} text={p.text} likes={p.likes} key={i} />)
+      }
       <div className={styles.newPost}>
         <div>
           <textarea value={props.newPostText} onChange={onNewPostTextChange} ref={newPostElement} placeholder='Enter your text' />
@@ -30,9 +33,6 @@ const Posts = (props) => {
           <button onClick={onAddPost}>Add Post</button>
         </div>
       </div>
-      {
-        props.posts.map((p, i) => <Post text={p.text} likes={p.likes} key={i} />)
-      }
     </div>
   );
 }

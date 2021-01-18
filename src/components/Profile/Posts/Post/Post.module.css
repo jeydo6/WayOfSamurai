@@ -1,9 +1,71 @@
-.item {
-  color: darkgray;
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "photoWrapper infoWrapper";
+  grid-template-columns: 1fr 4fr 7fr;
+  padding: 6px;
 }
 
-.item img {
+.photoWrapper {
+  grid-area: photoWrapper;
+  display: grid;
+  grid-template-areas:
+    "userPhoto"
+    "action";
+  grid-template-rows: 3fr auto;
+  padding: 6px 15px;
+}
+
+.infoWrapper {
+  grid-area: infoWrapper;
+  display: grid;
+  grid-template-areas:
+    "userName"
+    "text"
+    "likes";
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 6px;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+}
+
+.userPhoto {
+  grid-area: userPhoto;
+  text-align: center;
+  margin: auto;
+}
+
+.userPhoto img {
   width: 60px;
   height: 60px;
-  border-radius: 30px;
+  border-radius: 15px;
+}
+
+.action {
+  grid-area: action;
+  text-align: center;
+}
+
+.userName {
+  grid-area: userName;
+  margin-left: 6px;
+  margin-top: auto;
+  font-size: large;
+}
+
+.text {
+  grid-area: text;
+  margin-left: 6px;
+  margin-bottom: auto;
+  font-size: small;
+}
+
+.likes {
+  grid-area: likes;
+  margin-left: 6px;
+  margin-bottom: auto;
+  font-size: small;
+  color: gray;
 }

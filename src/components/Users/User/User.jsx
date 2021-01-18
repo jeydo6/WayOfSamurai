@@ -1,4 +1,5 @@
-import style from './User.module.css';
+import styles from './User.module.css';
+
 import userPhoto from '../../../assets/images/user.png';
 
 const User = (props) => {
@@ -11,16 +12,16 @@ const User = (props) => {
   }
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.photoWrapper}>
-        <div className={style.photo}>
+    <div className={styles.wrapper}>
+      <div className={styles.photoWrapper}>
+        <div className={styles.photo}>
           {
             props.photos && props.photos.small
               ? <img src={props.photos.small} alt='' />
               : <img src={userPhoto} alt='' />
           }
         </div>
-        <div className={style.action}>
+        <div className={styles.action}>
           {
             props.followed
               ? <button onClick={onUnfollow}>Unfollow</button>
@@ -28,17 +29,17 @@ const User = (props) => {
           }
         </div>
       </div>
-      <div className={style.infoWrapper}>
-        <div className={style.name}>
+      <div className={styles.infoWrapper}>
+        <div className={styles.name}>
           {props.name}
         </div>
-        <div className={style.status}>
+        <div className={styles.status}>
           {props.status}
         </div>
         {
           props.location
           ? (
-            <div className={style.location}>
+            <div className={styles.location}>
               <div>
                 {props.location.country},
               </div>

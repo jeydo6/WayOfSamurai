@@ -12,7 +12,7 @@
   grid-template-areas:
     "photo"
     "action";
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 3fr auto;
   padding: 6px 15px;
 }
 
@@ -34,6 +34,7 @@
 .photo {
   grid-area: photo;
   text-align: center;
+  margin: auto;
 }
 
 .photo img {

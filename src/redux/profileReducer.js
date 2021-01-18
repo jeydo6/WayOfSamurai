@@ -6,11 +6,13 @@ let initialState = {
   posts: [
     {
       id: 1,
+      userName: 'Andrew',
       text: 'Hi, how are you?',
       likes: 1
     },
     {
       id: 2,
+      userName: 'Michael',
       text: 'It\'s my first post!',
       likes: 23
     }
@@ -22,6 +24,7 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       let post = {
         id: 0,
+        userName: 'Me',
         text: action.text,
         likes: 0
       };
