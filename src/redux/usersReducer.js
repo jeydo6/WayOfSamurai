@@ -93,7 +93,7 @@ const usersReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export const followActionCreator = (id) => ({
   type: FOLLOW,

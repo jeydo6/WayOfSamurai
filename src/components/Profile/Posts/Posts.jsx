@@ -1,40 +1,47 @@
-import React from 'react'
+import React from 'react';
 
 import styles from './Posts.module.css';
 
 import Post from './Post/Post';
 
-const Posts = (props) => {
-  let newPostElement = React.createRef();
+class Posts extends React.Component {
+  newPostElement = React.createRef();
 
-  let onAddPost = () => {
-    let text = newPostElement.current.value;
+  onAddPost = () => {
+    let text = this.newPostElement.current.value;
 
-    props.addPost(text);
-  };
+    this.props.addPost(text);
+  }
 
-  let onNewPostTextChange = (e) => {
+  onNewPostTextChange = (e) => {
     let newPostText = e.target.value;
 
-    props.updateNewPostText(newPostText);
-  };
+    this.props.updateNewPostText(newPostText);
+  }
 
-  return (
-    <div>
-      Posts
-      {
-        props.posts.map((p, i) => <Post userName={p.userName} text={p.text} likes={p.likes} key={i} />)
-      }
-      <div className={styles.newPost}>
-        <div>
-          <textarea value={props.newPostText} onChange={onNewPostTextChange} ref={newPostElement} placeholder='Enter your text' />
-        </div>
-        <div>
-          <button onClick={onAddPost}>Add Post</button>
+  render() {
+    return (
+      <div>
+        Posts
+        {
+          this.props.posts.map((p, i) => <Post userName={p.userName} text={p.text} likes={p.likes} key={i} />)
+        }
+        <div className={styles.newPost}>
+          <div>
+            <textarea
+              value={this.props.newPostText}
+              ref={this.newPostElement}
+              onChange={this.onNewPostTextChange}
+              placeholder='Enter your text'
+            />
+          </div>
+          <div>
+            <button onClick={this.onAddPost}>Add Post</button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Posts;

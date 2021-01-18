@@ -1,60 +1,64 @@
+import React from 'react';
+
 import styles from './User.module.css';
 
 import userPhoto from '../../../assets/images/user.png';
 
-const User = (props) => {
-  let onFollow = () => {
-    props.follow(props.id);
+class User extends React.Component {
+  onFollow = () => {
+    this.props.follow(this.props.id);
   }
 
-  let onUnfollow = () => {
-    props.unfollow(props.id);
+  onUnfollow = () => {
+    this.props.unfollow(this.props.id);
   }
 
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.photoWrapper}>
-        <div className={styles.photo}>
-          {
-            props.photos && props.photos.small
-              ? <img src={props.photos.small} alt='' />
-              : <img src={userPhoto} alt='' />
-          }
+  render() {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.photoWrapper}>
+          <div className={styles.photo}>
+            {
+              this.props.photos && this.props.photos.small
+                ? <img src={this.props.photos.small} alt='' />
+                : <img src={userPhoto} alt='' />
+            }
+          </div>
+          <div className={styles.action}>
+            {
+              this.props.followed
+                ? <button onClick={this.onUnfollow}>Unfollow</button>
+                : <button onClick={this.onFollow}>Follow</button>
+            }
+          </div>
         </div>
-        <div className={styles.action}>
+        <div className={styles.infoWrapper}>
+          <div className={styles.name}>
+            {this.props.name}
+          </div>
+          <div className={styles.status}>
+            {this.props.status}
+          </div>
           {
-            props.followed
-              ? <button onClick={onUnfollow}>Unfollow</button>
-              : <button onClick={onFollow}>Follow</button>
+            this.props.location
+            ? (
+              <div className={styles.location}>
+                <div>
+                  {this.props.location.country},
+                </div>
+                <div>
+                  {this.props.location.city}
+                </div>
+              </div>
+            )
+            : (
+              null
+            )
           }
         </div>
       </div>
-      <div className={styles.infoWrapper}>
-        <div className={styles.name}>
-          {props.name}
-        </div>
-        <div className={styles.status}>
-          {props.status}
-        </div>
-        {
-          props.location
-          ? (
-            <div className={styles.location}>
-              <div>
-                {props.location.country},
-              </div>
-              <div>
-                {props.location.city}
-              </div>
-            </div>
-          )
-          : (
-            null
-          )
-        }
-      </div>
-    </div>
-  );
-};
+    );  
+  }
+}
 
 export default User;

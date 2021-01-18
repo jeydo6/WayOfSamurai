@@ -5,43 +5,50 @@ import styles from './Dialogs.module.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 
-const Dialogs = (props) => {
-  let newMessageElement = React.createRef();
+class Dialogs extends React.Component {
+  newMessageElement = React.createRef();
 
-  let onAddMessage = () => {
-    let text = newMessageElement.current.value;
+  onAddMessage = () => {
+    let text = this.newMessageElement.current.value;
 
-    props.addMessage(text);
+    this.props.addMessage(text);
   };
 
-  let onNewMessageTextChange = (e) => {
+  onNewMessageTextChange = (e) => {
     let newPostText = e.target.value;
 
-    props.updateNewMessageText(newPostText);
+    this.props.updateNewMessageText(newPostText);
   };
 
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.dialogs}>
-        {
-          props.dialogs.map((d, i) => <Dialog id={d.id} name={d.name} key={i} />)
-        }
-      </div>
-      <div className={styles.messages}>
-        {
-          props.messages.map((m, i) => <Message text={m.text} key={i} />)
-        }
-        <div className={styles.newMessage}>
-          <div>
-          <textarea value={props.newMessageText} onChange={onNewMessageTextChange} ref={newMessageElement} placeholder='Enter your text' />
-          </div>
-          <div>
-            <button onClick={onAddMessage}>Add Message</button>
+  render() {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.dialogs}>
+          {
+            this.props.dialogs.map((d, i) => <Dialog id={d.id} name={d.name} key={i} />)
+          }
+        </div>
+        <div className={styles.messages}>
+          {
+            this.props.messages.map((m, i) => <Message text={m.text} key={i} />)
+          }
+          <div className={styles.newMessage}>
+            <div>
+              <textarea
+                value={this.props.newMessageText}
+                ref={this.newMessageElement}
+                onChange={this.onNewMessageTextChange}
+                placeholder='Enter your text'
+              />
+            </div>
+            <div>
+              <button onClick={this.onAddMessage}>Add Message</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Dialogs;
