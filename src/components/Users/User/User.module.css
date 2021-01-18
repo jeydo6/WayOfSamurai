@@ -1,23 +1,23 @@
 .wrapper {
   display: grid;
   grid-template-areas:
-    "photo info";
+    "photoWrapper infoWrapper";
   grid-template-columns: 1fr 4fr 7fr;
   padding: 6px;
 }
 
 .photoWrapper {
-  grid-area: photo;
+  grid-area: photoWrapper;
   display: grid;
   grid-template-areas:
-    "avatar"
+    "photo"
     "action";
   grid-template-rows: 3fr 1fr;
   padding: 6px 15px;
 }
 
 .infoWrapper {
-  grid-area: info;
+  grid-area: infoWrapper;
   display: grid;
   grid-template-areas:
     "name location"
@@ -31,15 +31,15 @@
   border-radius: 15px;
 }
 
-.avatar {
-  grid-area: avatar;
+.photo {
+  grid-area: photo;
   text-align: center;
 }
 
-.avatar img {
+.photo img {
   width: 60px;
   height: 60px;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 
 .action {

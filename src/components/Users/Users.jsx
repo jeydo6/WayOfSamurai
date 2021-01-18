@@ -1,8 +1,26 @@
+import axios from 'axios';
+
 import styles from './Users.module.css'
 
 import User from './User/User';
 
 const Users = (props) => {
+  let getUsers = () => {
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(response => {
+        let users = response.data.items.map(i => ({
+            id: i.id,
+            name: i.name,
+            status: i.status,
+            followed: i.followed
+          })
+        );
+
+        props.setUsers(users);
+      });
+  }
+
   return (
     <div className={styles.wrapper}>
       {
@@ -18,6 +36,7 @@ const Users = (props) => {
           unfollow={props.unfollow}
         />)
       }
+      <button onClick={getUsers}>Get Users</button>
     </div>
   );
 };

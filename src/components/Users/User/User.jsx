@@ -1,4 +1,5 @@
-import style from './User.module.css'
+import style from './User.module.css';
+import userPhoto from '../../../assets/images/user.png';
 
 const User = (props) => {
   let onFollow = () => {
@@ -12,8 +13,12 @@ const User = (props) => {
   return (
     <div className={style.wrapper}>
       <div className={style.photoWrapper}>
-        <div className={style.avatar}>
-          <img src='https://i.pinimg.com/736x/fe/fe/70/fefe704e3129e8d42ae6e889e3615436--funny-animals-funny-cats.jpg' alt='' />
+        <div className={style.photo}>
+          {
+            props.photos && props.photos.small
+              ? <img src={props.photos.small} alt='' />
+              : <img src={userPhoto} alt='' />
+          }
         </div>
         <div className={style.action}>
           {
@@ -30,14 +35,22 @@ const User = (props) => {
         <div className={style.status}>
           {props.status}
         </div>
-        <div className={style.location}>
-          <div>
-            {props.location.country},
-          </div>
-          <div>
-            {props.location.city}
-          </div>
-        </div>
+        {
+          props.location
+          ? (
+            <div className={style.location}>
+              <div>
+                {props.location.country},
+              </div>
+              <div>
+                {props.location.city}
+              </div>
+            </div>
+          )
+          : (
+            null
+          )
+        }
       </div>
     </div>
   );
