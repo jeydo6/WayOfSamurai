@@ -24,7 +24,7 @@
     "likes";
   grid-template-rows: 1fr 1fr 1fr;
   padding: 6px;
-  border: black;
+  border: gray;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;

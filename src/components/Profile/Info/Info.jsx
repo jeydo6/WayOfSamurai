@@ -12,8 +12,8 @@ class Info extends React.Component {
         <div className={styles.photoWrapper}>
           <div className={styles.photo}>
             {
-              this.props.photos && this.props.photos.large
-                ? <img src={this.props.photos.large} alt='' />
+              this.props.photo
+                ? <img src={this.props.photo} alt='' />
                 : <img src={userPhoto} alt='' />
             }
           </div>
@@ -26,9 +26,6 @@ class Info extends React.Component {
             {this.props.status}
           </div>
           <hr />
-          <div>
-
-          </div>
         </div>
       </div>
     );

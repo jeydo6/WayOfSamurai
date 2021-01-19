@@ -2,17 +2,25 @@ import React from 'react';
 
 import styles from './Profile.module.css';
 
-import InfoContainer from './Info/InfoContainer';
-import PostsContainer from './Posts/PostsContainer';
+import Info from './Info/Info';
+import Posts from './Posts/Posts';
 
 class Profile extends React.Component {
-  
+
   render() {
     return (
       <div className={styles.wrapper}>
-        <InfoContainer />
+        <Info
+          {...this.props.profile}
+        />
         <hr />
-        <PostsContainer />
+        <Posts
+          posts={this.props.profile.posts}
+          newPostText={this.props.newPostText}
+
+          addPost={this.props.addPost}
+          updateNewPostText={this.props.updateNewPostText}
+        />
       </div>
     );
   }

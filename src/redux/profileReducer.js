@@ -1,12 +1,10 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const SET_INFO = 'SET_INFO';
+const SET_PROFILE = 'SET_PROFILE';
 const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 let initialState = {
-  info: {
-  },
-  posts: [],
+  profile: null,
   newPostText: '',
   isFetching: false
 };
@@ -14,30 +12,32 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-      console.log(state);
       let post = {
         id: 0,
         userName: 'Me',
-        userPhoto: state.info.photos ? state.info.photos.small : null,
+        userPhoto: state.profile.photos ? state.profile.photos.small : null,
         text: action.text,
         likes: 0
       };
 
       return {
         ...state,
+        profile: {
+          ...state.profile,
+          posts: [...state.profile.posts, post]
+        },
         newPostText: '',
-        posts: [...state.posts, post]
       };
     case UPDATE_NEW_POST_TEXT:
       return {
         ...state,
         newPostText: action.newPostText
       };
-    case SET_INFO:
+    case SET_PROFILE:
       return {
         ...state,
-        info: {
-          ...action.info
+        profile: {
+          ...action.profile
         }
       };
     case SET_IS_FETCHING:
@@ -60,9 +60,9 @@ export const updateNewPostTextActionCreator = (newPostText) => ({
   newPostText: newPostText
 });
 
-export const setInfoActionCreator = (info) => ({
-  type: SET_INFO,
-  info: info
+export const setProfileActionCreator = (profile) => ({
+  type: SET_PROFILE,
+  profile: profile
 });
 
 export const setIsFetchingActionCreator = (isFetching) => ({
