@@ -7,14 +7,16 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../.
 
 class DialogsContainer extends React.Component {
   render() {
-    return <Dialogs
-      dialogs={this.props.dialogs}
-      newMessageText={this.props.newMessageText}
-      messages={this.props.messages}
+    return (
+      <Dialogs
+        dialogs={this.props.dialogs}
+        newMessageText={this.props.newMessageText}
+        messages={this.props.messages}
 
-      addMessage={this.props.addMessage}
-      updateNewMessageText={this.props.updateNewMessageText}
-    />;
+        addMessage={this.props.addMessage}
+        updateNewMessageText={this.props.updateNewMessageText}
+      />
+    );
   }
 }
 

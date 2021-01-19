@@ -7,13 +7,15 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../r
 
 class PostsContainer extends React.Component {
   render() {
-    return <Posts
-      newPostText={this.props.newPostText}
-      posts={this.props.posts}
+    return (
+      <Posts
+        newPostText={this.props.newPostText}
+        posts={this.props.posts}
 
-      addPost={this.props.addPost}
-      updateNewPostText={this.props.updateNewPostText}
-    />;
+        addPost={this.props.addPost}
+        updateNewPostText={this.props.updateNewPostText}
+      />
+    );
   }
 }
 

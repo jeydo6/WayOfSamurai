@@ -54,7 +54,7 @@ class Users extends React.Component {
               name={u.name}
               status={u.status}
               photos={u.photos}
-              followed={u.followed}
+              isFollowed={u.isFollowed}
               location={u.location}
               key={i}
 

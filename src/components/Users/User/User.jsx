@@ -26,7 +26,7 @@ class User extends React.Component {
           </div>
           <div className={styles.action}>
             {
-              this.props.followed
+              this.props.isFollowed
                 ? <button onClick={this.onUnfollow}>Unfollow</button>
                 : <button onClick={this.onFollow}>Follow</button>
             }
