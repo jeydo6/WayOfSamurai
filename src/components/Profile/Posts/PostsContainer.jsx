@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 
 import Posts from "./Posts";
 
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profileReducer';
+import {
+  addPostActionCreator as addPost,
+  updateNewPostTextActionCreator as updateNewPostText
+} from '../../../redux/profileReducer';
 
 class PostsContainer extends React.Component {
   render() {
@@ -26,15 +29,9 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    addPost: (text) => {
-      dispatch(addPostActionCreator(text));
-    },
-    updateNewPostText: (newPostText) => {
-      dispatch(updateNewPostTextActionCreator(newPostText));
-    }
-  };
+let mapDispatchToProps = {
+  addPost,
+  updateNewPostText
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);

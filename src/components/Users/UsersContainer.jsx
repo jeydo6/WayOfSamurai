@@ -6,18 +6,18 @@ import Users from './Users';
 import Loader from '../Loaders/EllipsisLoader/EllipsisLoader';
 
 import {
-  followActionCreator,
-  unfollowActionCreator,
-  setUsersActionCreator,
-  setTotalCountActionCreator,
-  setCurrentPageActionCreator,
-  setIsFetchingActionCreator
+  followActionCreator as follow,
+  unfollowActionCreator as unfollow,
+  setUsersActionCreator as setUsers,
+  setTotalCountActionCreator as setTotalCount,
+  setCurrentPageActionCreator as setCurrentPage,
+  setIsFetchingActionCreator as setIsFetching
 } from '../../redux/usersReducer';
 
 class UsersContainer extends React.Component {
   getUsers = (pageNumber, pageSize) => {
     let path = `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`;
-    
+
     this.props.setIsFetching(true);
     axios
       .get(path)
@@ -83,27 +83,13 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (id) => {
-      dispatch(followActionCreator(id));
-    },
-    unfollow: (id) => {
-      dispatch(unfollowActionCreator(id));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersActionCreator(users));
-    },
-    setTotalCount: (totalCount) => {
-      dispatch(setTotalCountActionCreator(totalCount));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageActionCreator(pageNumber));
-    },
-    setIsFetching: (isFetching) => {
-      dispatch(setIsFetchingActionCreator(isFetching));
-    }
-  };
+let mapDispatchToProps = {
+  follow,
+  unfollow,
+  setUsers,
+  setTotalCount,
+  setCurrentPage,
+  setIsFetching
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);;
