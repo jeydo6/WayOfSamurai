@@ -6,6 +6,7 @@ import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 
 class Dialogs extends React.Component {
+  
   newMessageElement = React.createRef();
 
   onAddMessage = () => {

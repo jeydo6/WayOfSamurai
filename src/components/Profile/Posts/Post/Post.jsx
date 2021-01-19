@@ -5,14 +5,15 @@ import styles from './Post.module.css';
 import userPhoto from '../../../../assets/images/user.png';
 
 class Post extends React.Component {
+  
   render() {
     return (
       <div className={styles.wrapper}>
         <div className={styles.photoWrapper}>
           <div className={styles.userPhoto}>
             {
-              this.props.photos && this.props.photos.small
-                ? <img src={this.props.photos.small} alt='' />
+              this.props.userPhoto
+                ? <img src={this.props.userPhoto} alt='' />
                 : <img src={userPhoto} alt='' />
             }
           </div>

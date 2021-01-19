@@ -33,7 +33,6 @@
 
 .photo {
   grid-area: photo;
-  text-align: center;
   margin: auto;
 }
 

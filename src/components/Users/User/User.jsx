@@ -1,10 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styles from './User.module.css';
 
 import userPhoto from '../../../assets/images/user.png';
 
 class User extends React.Component {
+  
   onFollow = () => {
     this.props.follow(this.props.id);
   }
@@ -18,11 +20,13 @@ class User extends React.Component {
       <div className={styles.wrapper}>
         <div className={styles.photoWrapper}>
           <div className={styles.photo}>
-            {
-              this.props.photos && this.props.photos.small
-                ? <img src={this.props.photos.small} alt='' />
-                : <img src={userPhoto} alt='' />
-            }
+            <NavLink to={'profile/' + this.props.id}>
+              {
+                this.props.photos && this.props.photos.small
+                  ? <img src={this.props.photos.small} alt='' />
+                  : <img src={userPhoto} alt='' />
+              }
+            </NavLink>
           </div>
           <div className={styles.action}>
             {
@@ -41,23 +45,23 @@ class User extends React.Component {
           </div>
           {
             this.props.location
-            ? (
-              <div className={styles.location}>
-                <div>
-                  {this.props.location.country},
+              ? (
+                <div className={styles.location}>
+                  <div>
+                    {this.props.location.country},
+                  </div>
+                  <div>
+                    {this.props.location.city}
+                  </div>
                 </div>
-                <div>
-                  {this.props.location.city}
-                </div>
-              </div>
-            )
-            : (
-              null
-            )
+              )
+              : (
+                null
+              )
           }
         </div>
       </div>
-    );  
+    );
   }
 }
 

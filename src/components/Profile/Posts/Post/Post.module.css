@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas:
     "photoWrapper infoWrapper";
-  grid-template-columns: 1fr 4fr 7fr;
+  grid-template-columns: auto 4fr 7fr;
   padding: 6px;
 }
 
@@ -13,7 +13,6 @@
     "userPhoto"
     "action";
   grid-template-rows: 3fr auto;
-  padding: 6px 15px;
 }
 
 .infoWrapper {
@@ -29,17 +28,17 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
+  margin: 0px 15px;
 }
 
 .userPhoto {
   grid-area: userPhoto;
-  text-align: center;
   margin: auto;
 }
 
 .userPhoto img {
-  width: 60px;
-  height: 60px;
+  max-width: 80px;
+  max-height: 80px;
   border-radius: 15px;
 }
 

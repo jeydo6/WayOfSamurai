@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Dialog.module.css';
 
 class Dialog extends React.Component {
+  
   render() {
     let path = '/dialogs/' + this.props.id;
 

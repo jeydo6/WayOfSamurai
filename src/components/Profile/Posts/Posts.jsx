@@ -5,6 +5,7 @@ import styles from './Posts.module.css';
 import Post from './Post/Post';
 
 class Posts extends React.Component {
+  
   newPostElement = React.createRef();
 
   onAddPost = () => {
@@ -22,9 +23,8 @@ class Posts extends React.Component {
   render() {
     return (
       <div>
-        Posts
         {
-          this.props.posts.map((p, i) => <Post userName={p.userName} text={p.text} likes={p.likes} key={i} />)
+          this.props.posts.map((p, i) => <Post {...p} key={i} />)
         }
         <div className={styles.newPost}>
           <div>
@@ -32,7 +32,7 @@ class Posts extends React.Component {
               value={this.props.newPostText}
               ref={this.newPostElement}
               onChange={this.onNewPostTextChange}
-              placeholder='Enter your text'
+              placeholder='What&apos;s new?'
             />
           </div>
           <div>

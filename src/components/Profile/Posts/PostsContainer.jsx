@@ -9,23 +9,18 @@ import {
 } from '../../../redux/profileReducer';
 
 class PostsContainer extends React.Component {
+  
   render() {
     return (
-      <Posts
-        newPostText={this.props.newPostText}
-        posts={this.props.posts}
-
-        addPost={this.props.addPost}
-        updateNewPostText={this.props.updateNewPostText}
-      />
+      <Posts {...this.props} />
     );
   }
 }
 
 let mapStateToProps = (state) => {
   return {
-    newPostText: state.profile.newPostText,
-    posts: state.profile.posts
+    posts: state.profile.posts,
+    newPostText: state.profile.newPostText
   };
 };
 

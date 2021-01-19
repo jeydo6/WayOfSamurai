@@ -9,16 +9,10 @@ import {
 } from '../../redux/dialogsReducer';
 
 class DialogsContainer extends React.Component {
+  
   render() {
     return (
-      <Dialogs
-        dialogs={this.props.dialogs}
-        newMessageText={this.props.newMessageText}
-        messages={this.props.messages}
-
-        addMessage={this.props.addMessage}
-        updateNewMessageText={this.props.updateNewMessageText}
-      />
+      <Dialogs {...this.props} />
     );
   }
 }
@@ -26,8 +20,8 @@ class DialogsContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     dialogs: state.dialogs.dialogs,
-    newMessageText: state.dialogs.newMessageText,
-    messages: state.dialogs.messages
+    messages: state.dialogs.messages,
+    newMessageText: state.dialogs.newMessageText
   };
 };
 

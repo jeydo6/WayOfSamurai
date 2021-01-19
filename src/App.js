@@ -9,11 +9,12 @@ import './App.css';
 
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 
 class App extends React.Component {
+  
   render() {
     return (
       <Router>
@@ -22,7 +23,7 @@ class App extends React.Component {
           <Sidebar />
           <div className='app-wrapper-content'>
             <Switch>
-              <Route path='/profile' component={Profile} />
+              <Route path='/profile' component={ProfileContainer} />
               <Route path='/dialogs' component={DialogsContainer} />
               <Route path='/users' component={UsersContainer} />
             </Switch>

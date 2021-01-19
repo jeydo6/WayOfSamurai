@@ -1,4 +1,51 @@
-.header img {
-  width: 100%;
-  height: 160px;
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "photoWrapper infoWrapper";
+  grid-template-columns: 1fr 4fr;
+}
+
+.photoWrapper {
+  grid-area: photoWrapper;
+  display: grid;
+  grid-template-areas:
+    "photo"
+    "action";
+  grid-template-rows: 3fr auto;
+  padding: 6px;
+}
+
+.infoWrapper {
+  grid-area: infoWrapper;
+  padding: 6px;
+}
+
+.photo {
+  grid-area: photo;
+  text-align: center;
+  margin: auto;
+}
+
+.photo img {
+  width: 300px;
+  border-radius: 15px;
+}
+
+.action {
+  grid-area: action;
+  text-align: center;
+}
+
+.name {
+  grid-area: name;
+  margin-left: 6px;
+  font-size: xx-large;
+}
+
+.status {
+  grid-area: status;
+  margin-left: 6px;
+  margin-bottom: 0;
+  font-size: small;
+  color: gray;
 }

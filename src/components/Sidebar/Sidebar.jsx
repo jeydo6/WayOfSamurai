@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
 class Sidebar extends React.Component {
+  
   render() {
     return (
       <nav className={styles.nav}>

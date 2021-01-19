@@ -5,40 +5,50 @@ import styles from './Users.module.css'
 import User from './User/User';
 
 class Users extends React.Component {
+  
+  onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    this.props.getUsers(pageNumber, this.props.pageSize);
+  };
+
   getPages(pageNumber, totalCount) {
-    let left = [];
-    if (pageNumber > 0) {
-      if (pageNumber === 3) {
-        left = [1, pageNumber - 1];
+    if (totalCount > 0) {
+      let left = [];
+      if (pageNumber > 0) {
+        if (pageNumber === 3) {
+          left = [1, pageNumber - 1];
+        }
+        else if (pageNumber === 2) {
+          left = [1];
+        }
+        else if (pageNumber === 1) {
+          left = [];
+        }
+        else {
+          left = [1, null, pageNumber - 1];
+        }
       }
-      else if (pageNumber === 2) {
-        left = [1];
+  
+      let right = [];
+      if (pageNumber < totalCount) {
+        if (pageNumber === totalCount - 3) {
+          right = [pageNumber + 1, totalCount - 1];
+        }
+        else if (pageNumber === totalCount - 2) {
+          right = [totalCount - 1];
+        }
+        else if (pageNumber === totalCount - 1) {
+          right = [];
+        }
+        else {
+          right = [pageNumber + 1, null, totalCount - 1];
+        }
       }
-      else if (pageNumber === 1) {
-        left = [];
-      }
-      else {
-        left = [1, null, pageNumber - 1];
-      }
+
+      return [...left, pageNumber, ...right];
     }
 
-    let right = [];
-    if (pageNumber < totalCount) {
-      if (pageNumber === totalCount - 3) {
-        right = [pageNumber + 1, totalCount - 1];
-      }
-      else if (pageNumber === totalCount - 2) {
-        right = [totalCount - 1];
-      }
-      else if (pageNumber === totalCount - 1) {
-        right = [];
-      }
-      else {
-        right = [pageNumber + 1, null, totalCount - 1];
-      }
-    }
-
-    return [...left, pageNumber, ...right];
+    return [];
   }
 
   render() {
@@ -69,7 +79,7 @@ class Users extends React.Component {
                 p
                   ? <span
                       className={this.props.currentPage === p ? styles.selectedPage : ''}
-                      onClick={() => this.props.onPageChanged(p)}
+                      onClick={() => this.onPageChanged(p)}
                       key={i}
                     > {p} </span>
                   : <span key={i}> ... </span>

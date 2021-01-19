@@ -17,3 +17,8 @@ body {
   grid-area: content;
   background-color: white;
 }
+
+hr {
+  border: 0;
+  border-top: 1px solid #84848440;
+}

@@ -24,7 +24,6 @@ let initialState = {
       name: 'Chris'
     },
   ],
-  newMessageText: '',
   messages: [
     {
       id: 1,
@@ -38,7 +37,8 @@ let initialState = {
       id: 3,
       text: 'It\'s amazing!'
     }
-  ]
+  ],
+  newMessageText: ''
 };
 
 const dialogsReducer = (state = initialState, action) => {
