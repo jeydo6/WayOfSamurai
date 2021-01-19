@@ -2,59 +2,63 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
+// let initialState = {
+//   users: [
+//     {
+//       id: 1,
+//       name: 'Ivan',
+//       status: 'Hello! I\'m here now!',
+//       location: {
+//         country: 'Russia',
+//         city: 'Moscow'
+//       },
+//       followed: true
+//     },
+//     {
+//       id: 2,
+//       name: 'Andrew',
+//       status: 'Hello!',
+//       location: {
+//         country: 'Belarus',
+//         city: 'Minsk'
+//       },
+//       followed: false
+//     },
+//     {
+//       id: 3,
+//       name: 'Michael',
+//       status: 'Hey!',
+//       location: {
+//         country: 'Germany',
+//         city: 'Berlin'
+//       },
+//       followed: false
+//     },
+//     {
+//       id: 4,
+//       name: 'Alex',
+//       status: 'Hey, what\'s up?',
+//       location: {
+//         country: 'United States',
+//         city: 'San Francisco'
+//       },
+//       followed: false
+//     },
+//     {
+//       id: 5,
+//       name: 'Chris',
+//       status: 'London - is the capital of Great Britain!',
+//       location: {
+//         country: 'Great Britain',
+//         city: 'London'
+//       },
+//       followed: false
+//     }
+//   ]
+// };
+
 let initialState = {
-  users: [
-    {
-      id: 1,
-      name: 'Ivan',
-      status: 'Hello! I\'m here now!',
-      location: {
-        country: 'Russia',
-        city: 'Moscow'
-      },
-      followed: true
-    },
-    {
-      id: 2,
-      name: 'Andrew',
-      status: 'Hello!',
-      location: {
-        country: 'Belarus',
-        city: 'Minsk'
-      },
-      followed: false
-    },
-    {
-      id: 3,
-      name: 'Michael',
-      status: 'Hey!',
-      location: {
-        country: 'Germany',
-        city: 'Berlin'
-      },
-      followed: false
-    },
-    {
-      id: 4,
-      name: 'Alex',
-      status: 'Hey, what\'s up?',
-      location: {
-        country: 'United States',
-        city: 'San Francisco'
-      },
-      followed: false
-    },
-    {
-      id: 5,
-      name: 'Chris',
-      status: 'London - is the capital of Great Britain!',
-      location: {
-        country: 'Great Britain',
-        city: 'London'
-      },
-      followed: false
-    }
-  ]
+  users: []
 };
 
 const usersReducer = (state = initialState, action) => {

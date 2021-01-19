@@ -22,6 +22,10 @@ class Users extends React.Component {
       });
   }
 
+  componentDidMount() {
+    this.getUsers();
+  }
+
   render() {
     return (
       <div className={styles.wrapper}>
@@ -38,7 +42,6 @@ class Users extends React.Component {
             unfollow={this.props.unfollow}
           />)
         }
-        <button onClick={this.getUsers}>Get Users</button>
       </div>
     );
   }
