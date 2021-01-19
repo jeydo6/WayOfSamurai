@@ -1,3 +1,7 @@
 .wrapper {
   padding: 15px;
 }
+
+.selectedPage {
+  font-weight: bold;
+}
