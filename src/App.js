@@ -23,7 +23,7 @@ class App extends React.Component {
           <Sidebar />
           <div className='app-wrapper-content'>
             <Switch>
-              <Route path='/profile' component={ProfileContainer} />
+              <Route path='/profile/:userId?' component={ProfileContainer} />
               <Route path='/dialogs' component={DialogsContainer} />
               <Route path='/users' component={UsersContainer} />
             </Switch>

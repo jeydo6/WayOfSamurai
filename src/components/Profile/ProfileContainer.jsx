@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Profile from './Profile';
 import Loader from '../Loaders/EllipsisLoader/EllipsisLoader';
@@ -18,12 +19,13 @@ class ProfileContainer extends React.Component {
     let infoPath = `https://social-network.samuraijs.com/api/1.0/profile/${userId}`;
     let statusPath = `https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`;
 
+    this.props.setProfile(null);
     this.props.setIsFetching(true);
     axios
       .all([axios.get(infoPath), axios.get(statusPath)])
       .then(
         axios.spread((infoResponse, statusResponse) => {
-          let info = {
+          let profile = {
             id: infoResponse.data.userId,
             name: infoResponse.data.fullName,
             photos: infoResponse.data.photos,
@@ -31,7 +33,7 @@ class ProfileContainer extends React.Component {
             posts: []
           };
 
-          this.props.setProfile(info);
+          this.props.setProfile(profile);
           this.props.setIsFetching(false);
         })
       )
@@ -42,16 +44,19 @@ class ProfileContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.getProfile(2);
+    let userId = this.props.match.params.userId;
+    if (!userId) {
+      userId = 2;
+    }
+    
+    this.getProfile(userId);
   }
 
   render() {
     return (
       this.props.isFetching
         ? <Loader />
-        : this.props.profile
-          ? <Profile {...this.props} />
-          : null
+        : <Profile {...this.props} />
     );
   }
 }
@@ -62,7 +67,7 @@ let mapStateToProps = (state) => {
       id: state.profile.profile.id,
       name: state.profile.profile.name,
       status: state.profile.profile.status,
-      photo: state.profile.profile.photos.large,
+      photo: state.profile.profile.photos?.large,
       posts: state.profile.profile.posts
     } : null,
     newPostText: state.profile.newPostText
@@ -76,4 +81,6 @@ let mapDispatchToProps = {
   setIsFetching
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withRouter(ProfileContainer)
+);

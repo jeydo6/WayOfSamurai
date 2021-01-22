@@ -34,12 +34,20 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.newPostText
       };
     case SET_PROFILE:
-      return {
-        ...state,
-        profile: {
-          ...action.profile
-        }
-      };
+      if(action.profile) {
+        return {
+          ...state,
+          profile: {
+            ...action.profile
+          }
+        };
+      }
+      else {
+        return {
+          ...state,
+          profile: null
+        };
+      }
     case SET_IS_FETCHING:
       return {
         ...state,

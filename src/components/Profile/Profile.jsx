@@ -4,10 +4,15 @@ import styles from './Profile.module.css';
 
 import Info from './Info/Info';
 import Posts from './Posts/Posts';
+import Loader from '../Loaders/EllipsisLoader/EllipsisLoader';
 
 class Profile extends React.Component {
 
   render() {
+    if (!this.props.profile) {
+      return <Loader />
+    }
+
     return (
       <div className={styles.wrapper}>
         <Info
